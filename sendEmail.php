@@ -1,15 +1,15 @@
-<?php  
+<?php
 $base_url = "https://" . $_SERVER["HTTP_HOST"] ."/kodomocooking";
 
- 
-//if user access except LP , redirect to top 
+
+//if user access except LP , redirect to top
 if (empty($_POST['from_lp'])) {
-     header("Location: {$base_url}"); 
+     header("Location: {$base_url}");
      exit;
 }
 
 //i save data to session for validation
-session_start();  
+session_start();
 $_SESSION = $_POST;
 
 
@@ -20,7 +20,7 @@ $required = [
     'address',
     'email',
     'note'
-]; 
+];
 
 foreach ($required as $value) {
 
@@ -28,16 +28,16 @@ foreach ($required as $value) {
         header("Location: {$base_url}/?e=1#formease");
         exit;
     }
-} 
+}
 
 //email validation
 if (!empty($_POST['email'])) {
    if (preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $_POST['email'])) {
-    //if ok , we dont care 
+    //if ok , we dont care
     } else {
-        header("Location: {$base_url}/?e_email=1#formease"); 
+        header("Location: {$base_url}/?e_email=1#formease");
         exit;
-    } 
+    }
 }
 
 // validation ok , so session destory
@@ -45,7 +45,7 @@ session_destroy();
 
 mb_language("Japanese");
 mb_internal_encoding("UTF-8");
-$to = 'f.yuya.yamamoto@gmail.com';
+$to = 'haga_haga_haga@yahoo.ne.jp';
 $subject = '料理教室にお問い合わせがありました。';
 $subject = mb_convert_encoding($subject, "ISO-2022-JP", "UTF-8,EUC-JP,auto");
 $message = <<<CONTENT
@@ -64,17 +64,17 @@ CONTENT;
 
 $message = mb_convert_encoding($message, "ISO-2022-JP", "UTF-8,EUC-JP,auto");
 
-$headers = "From: " .mb_encode_mimeheader("ease") ."<f.yuya.yamamoto@gmail.com>";
+$headers = "From: " .mb_encode_mimeheader("ease") ."<haga_haga_haga@yahoo.ne.jp>";
 
 $send_mail =  mb_send_mail($to, $subject, $message, $headers);
 
 if($send_mail) {
-    // header("Location: {$base_url}/thanks.php");  
-    header("Location: {$base_url}");  
+    // header("Location: {$base_url}/thanks.php");
+    header("Location: {$base_url}");
     exit;
 } else {
-    header("Location: {$base_url}/?e=1#formease"); 
+    header("Location: {$base_url}/?e=1#formease");
     exit;
 }
- 
+
 ?>
