@@ -1,7 +1,7 @@
-<?php 
+<?php  
 
 // $base_url = "https://" . $_SERVER["HTTP_HOST"];
-$base_url = "http://" . $_SERVER["HTTP_HOST"] ."/kodomocooking/";
+$base_url = "http://" . $_SERVER["HTTP_HOST"] ."/kodomocooking";
 
  
 //if user access except LP , redirect to top 
