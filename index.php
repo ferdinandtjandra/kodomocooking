@@ -574,7 +574,7 @@ session_start();
                           echo $_SESSION['name'];
                         }
                      }
-                     ?>" class="input" >
+                     ?>" class="input" require>
                    </div>
                  </div>
                  <div class="input_block">
@@ -597,7 +597,7 @@ session_start();
                           echo $_SESSION['tel'];
                         }
                      }
-                     ?>" class="input" >
+                     ?>" class="input" require>
                    </div>
                  </div>
                  <div class="input_block">
@@ -621,7 +621,7 @@ session_start();
                           echo $_SESSION['address'];
                         }
                      }
-                     ?>" class="input" >
+                     ?>" class="input" require>
                    </div>
                  </div>
                  <div class="input_block">
@@ -643,7 +643,7 @@ session_start();
                           echo $_SESSION['email'];
                         }
                      }
-                     ?>" class="input" >
+                     ?>" class="input" require>
                    </div>
                  </div>
 
@@ -662,7 +662,7 @@ session_start();
                      }
                      ?>
                      
-                     <textarea name="note" rows="8" cols="" class="textarea" >
+                     <textarea name="note" rows="8" cols="" class="textarea" require>
                     <?php 
                      if(isset($_SESSION['note'])){
                         if(!empty($_SESSION['note'])) {  

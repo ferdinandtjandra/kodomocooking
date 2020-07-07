@@ -1,7 +1,7 @@
 <?php 
 
 // $base_url = "https://" . $_SERVER["HTTP_HOST"];
-$base_url = "http://" . $_SERVER["HTTP_HOST"] ."/ease";
+$base_url = "http://" . $_SERVER["HTTP_HOST"] ."/kodomocooking/";
 
  
 //if user access except LP , redirect to top 
@@ -72,7 +72,8 @@ $headers = "From: " .mb_encode_mimeheader("ease") ."<f.yuya.yamamoto@gmail.com>"
 $send_mail =  mail($to, $subject, $message, $headers);
 
 if($send_mail) {
-    header("Location: {$base_url}/thanks.php");  
+    // header("Location: {$base_url}/thanks.php");  
+    header("Location: {$base_url}");  
     exit;
 } else {
     header("Location: {$base_url}/?e=1#formease"); 
